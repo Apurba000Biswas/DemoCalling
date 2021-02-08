@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.zaynax.democallingapp"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -37,13 +37,10 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-
-//    implementation ('io.socket:engine.io-client:2.0.0') {
-//        // excluding org.json which is provided by Android
-//        exclude group: 'org.json', module: 'json'
-//    }
-
-    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
+    implementation ('io.socket:socket.io-client:1.0.1') {
+        exclude group: 'org.json', module: 'json'
+    }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:3.0.0') { transitive = true }
 
 
 }
