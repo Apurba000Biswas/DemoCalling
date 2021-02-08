@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     Log.d("AAA", "Connected!");
+                    showIncomingCallScreen();
                 }
             });
         }
@@ -110,8 +111,13 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void showIncomingCallScreen(){
-        Intent callIntent = new Intent(MainActivity.this, CallViewActivity.class);
-        startActivity(callIntent);
+        JitsiMeetConferenceOptions options
+                = new JitsiMeetConferenceOptions.Builder()
+                .setRoom("Apurba")
+                .build();
+        // Launch the new activity with the given options. The launch() method takes care
+        // of creating the required Intent and passing the options.
+        JitsiMeetActivity.launch(this, options);
     }
 
     public void onCallRejected() {
